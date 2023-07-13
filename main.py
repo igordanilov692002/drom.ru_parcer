@@ -1,16 +1,19 @@
-# This is a sample Python script.
+import requests
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+link = 'https://api.drom.ru/v1.2/bulls/search'
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+payload = {'firmId': 5, 'cityId': 6}
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+# firmId - Фирма автомобиля (int)
+# modelId - Модель автомобиля (int)
+# generationNumber - Номер поколения (int)
+# restylingNumber - Номер рестайлинга (int)
+# cityId - Город (int)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+r = requests.get('https://httpbin.org/get', params=payload)
+
+
+# r = requests.get('https://api.github.com/events')
+print(r.url)
+print(r.text)
