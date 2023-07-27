@@ -28,6 +28,9 @@ class Drom_Parser:
         # Html_file.close()
         # return Html_file
         return html
+    def make_link(self):
+        """формирование сылки"""
+        pass
 
     def get_cards(self, html = None):
         """ получаем автомобильные карточки """
@@ -39,6 +42,7 @@ class Drom_Parser:
             # soup.find_all('p', class_='three')
             cards = soup.find('div', class_=["css-1nvf6xk", "eojktn00"])
             cards = cards.findAll('a')
+            print(cards)
 
         except:
             print('не удалось считать карточки')

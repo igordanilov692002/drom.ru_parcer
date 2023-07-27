@@ -1,19 +1,25 @@
-import requests
+import asyncio
+import configparser
+import logging
 
-link = 'https://api.drom.ru/v1.2/bulls/search'
+from aiogram import Bot, Dispatcher
+from aiogram.enums.parse_mode import ParseMode
+from aiogram.fsm.storage.memory import MemoryStorage
 
-payload = {'firmId': 5, 'cityId': 6}
-
-
-# firmId - Фирма автомобиля (int)
-# modelId - Модель автомобиля (int)
-# generationNumber - Номер поколения (int)
-# restylingNumber - Номер рестайлинга (int)
-# cityId - Город (int)
-
-r = requests.get('https://httpbin.org/get', params=payload)
+from configparser import ConfigParser
+from handlers import router
 
 
-# r = requests.get('https://api.github.com/events')
-print(r.url)
-print(r.text)
+async def main():
+    config = configparser.ConfigParser()  # создаём объекта парсера
+    config.read("config.ini")  # читаем конфиг
+    bot = Bot(token=config["Telegram"]["API_TOKEN"], parse_mode=ParseMode.HTML)
+    dp = Dispatcher(storage=MemoryStorage())
+    dp.include_router(router)
+    await bot.delete_webhook(drop_pending_updates=True)
+    await dp.start_polling(bot, allowed_updates=dp.resolve_used_update_types())
+
+
+if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO)
+    asyncio.run(main())
