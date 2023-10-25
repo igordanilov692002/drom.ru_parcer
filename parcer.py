@@ -70,11 +70,11 @@ class Drom_Parser:
 
 
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
 
-    url = 'https://auto.drom.ru/bmw/x5/generation4/restyling0/?minprice=1900000&minyear=2021' #https://auto.drom.ru/bmw/x5/generation4/restyling0/?minprice=1900000&minyear=2021
-    # headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36'}
-    a = Drom_Parser(url)
+#     url = 'https://auto.drom.ru/bmw/x5/generation4/restyling0/?minprice=1900000&minyear=2021' #https://auto.drom.ru/bmw/x5/generation4/restyling0/?minprice=1900000&minyear=2021
+#     # headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36'}
+#     a = Drom_Parser(url)
 
 
 
